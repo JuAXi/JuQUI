@@ -479,3 +479,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/JuQUI/JuQUI.vcxproj
+/JuQUI.sln
+/JuQUI/JuQUI.vcxproj.filters
