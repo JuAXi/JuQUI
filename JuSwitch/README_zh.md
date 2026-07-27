@@ -29,9 +29,9 @@
 	- [ParamSet](#paramset)
 		- [语法](#语法-2)
 		- [成员](#成员-2)
-- [Signals](#signals)
+- [信号槽](#信号槽)
 	- [`void SignalStateChange(bool current_state)`](#void-signalstatechangebool-current_state)
-- [Functions](#functions)
+- [函数](#函数-1)
 	- [JuSwitch(QWidget\* parent = nullptr, ju\_switch::ParamSet param = {}, ju\_switch::ColorSet color\_set = {}, ju\_switch::StyleSet style\_set = {})](#juswitchqwidget-parent--nullptr-ju_switchparamset-param---ju_switchcolorset-color_set---ju_switchstyleset-style_set--)
 	- [~JuSwitch()](#juswitch)
 	- [ju\_switch::StyleSet StyleSet()](#ju_switchstyleset-styleset)
@@ -480,12 +480,12 @@ struct ParamSet
 | `animation_duration_ms` | `int` | `150` | 动画时长（毫秒）, 动画进行期间开关不会被二次触发 |
 | `events` | `ju_switch::EventListen` | `EventListen::MOUSE_LUP \| ju_switch::EventListen::KEY_SPACE_UP` | 见 [EventListen](#eventlisten) | 
 
-# Signals  
+# 信号槽  
 
 ## `void SignalStateChange(bool current_state)`
 当 `ChangeState` 被调用，且新状态不等于当前状态时触发.
 
-# Functions  
+# 函数  
 
 ## JuSwitch(QWidget* parent = nullptr, [ju_switch::ParamSet](#paramset) param = {}, [ju_switch::ColorSet](#colorset) color_set = {}, [ju_switch::StyleSet](#styleset) style_set = {})
 
