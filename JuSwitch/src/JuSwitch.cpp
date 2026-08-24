@@ -160,10 +160,10 @@ void JuSwitch::resizeEvent(QResizeEvent* event)
 		:
 		(rect.height());
 	const auto margin = _is_margin_px ? static_cast<int>(_margin) : static_cast<int>(canvas_height * _margin);
-	const auto button_size = canvas_height - margin * 2;
+	const auto button_size = canvas_height - (margin << 1);
 
 	// resize button
-	const auto button_y = (rect.height() - button_size) / 2;
+	const auto button_y = (rect.height() - button_size) >> 1;
 	button_ptr->setGeometry(
 		this->_current_state ? (rect.width() - button_size - margin) : (margin),
 		button_y,
@@ -174,7 +174,7 @@ void JuSwitch::resizeEvent(QResizeEvent* event)
 
 	// resize slider
 	auto width = 0;
-	auto height = canvas_height - margin * 2;
+	auto height = canvas_height - (margin << 1);
 	auto y = margin;
 	auto x = 0;
 	// calculate 'x' and 'width'
@@ -196,7 +196,7 @@ void JuSwitch::resizeEvent(QResizeEvent* event)
 		}
 		case ju_switch::PaddingBase::BUTTON:
 		{
-			x = margin + button_size / 2;
+			x = margin + (button_size >> 1);
 			if (_is_padding_h_px)
 			{
 				x += _padding_h;
@@ -220,7 +220,7 @@ void JuSwitch::resizeEvent(QResizeEvent* event)
 	}
 	height = canvas_height - y * 2;
 
-	slider_ptr->setGeometry(x, (rect.height() - height) / 2, width, height);
+	slider_ptr->setGeometry(x, (rect.height() - height) >> 1, width, height);
 
 	if (!_is_slider_radius_px)
 	{
@@ -397,20 +397,19 @@ void JuSwitchSlider::paintEvent(QPaintEvent* event)
 
 	QPainterPath mask;
 	mask.addRoundedRect(rect, radius, radius);
+	painter.setClipPath(mask);
 
-	auto width = _button_ptr->mapToGlobal(QPoint(0, 0)).x() + _button_ptr->size().width() / 2 - this->mapToGlobal(QPoint(0, 0)).x();
-	QPainterPath path_true;
-	path_true.addRect(0, 0, width, rect.height());
+	auto width = _button_ptr->x() + (_button_ptr->width() >> 1);
 
 	// draw true
 	painter.setPen(pen_true);
 	painter.setBrush(brush_true);
-	painter.drawPath(mask.intersected(path_true));
+	painter.drawRect(0, 0, width, rect.height());
 
 	// draw false
 	painter.setPen(pen_false);
 	painter.setBrush(brush_false);
-	painter.drawPath(mask.subtracted(path_true));
+	painter.drawRect(width, 0, rect.width() - width, rect.height());
 }
 
 /*		button widget		*/
