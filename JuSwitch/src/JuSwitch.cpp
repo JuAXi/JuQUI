@@ -354,16 +354,12 @@ void JuSwitch::ColorSchemeChangedSlot(Qt::ColorScheme colorScheme)
 
 void JuSwitch::ChangeState(bool new_state, bool emit_signal)
 {
-	if (_animation_running)
+	if (_animation_running || new_state == _current_state)
 	{
 		return;
 	}
 
 	_animation_running = true;
-	if (new_state == _current_state)
-	{
-		return;
-	}
 
 	this->_current_state = new_state;
 
