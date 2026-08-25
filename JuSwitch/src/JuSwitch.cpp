@@ -1,3 +1,19 @@
+/*
+ * Copyright 2026 JuAXi
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://apache.org
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 #include "JuSwitch.h"
 
 #include <QPainter>
@@ -336,7 +352,7 @@ void JuSwitch::ColorSchemeChangedSlot(Qt::ColorScheme colorScheme)
 	button_ptr->update();
 }
 
-void JuSwitch::ChangeState(bool new_state)
+void JuSwitch::ChangeState(bool new_state, bool emit_signal)
 {
 	if (_animation_running)
 	{
@@ -370,7 +386,11 @@ void JuSwitch::ChangeState(bool new_state)
 	_button_color_animation_ptr->start();
 	_button_border_animation_ptr->start();
 
-	emit SignalStateChange(this->_current_state);
+	if (emit_signal)
+	{
+		emit SignalStateChange(this->_current_state);
+	}
+
 	button_ptr->icon_state = this->_current_state;
 }
 
