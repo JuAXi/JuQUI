@@ -21,7 +21,7 @@ JuSwitch::JuSwitch(QWidget* parent, ju_switch::ParamSet param, ju_switch::ColorS
 	/*		create animations		*/
 	// button move
 	_button_move_animation_ptr = new QPropertyAnimation(button_ptr, "pos", button_ptr);
-	_button_move_animation_ptr->setEasingCurve(QEasingCurve::InOutQuad);
+	_button_move_animation_ptr->setEasingCurve(QEasingCurve::OutCubic);
 	connect(_button_move_animation_ptr, &QPropertyAnimation::finished, [this]() {this->_animation_running = false; });
 	// button color
 	_button_color_animation_ptr = new QPropertyAnimation(button_ptr, "my_color", button_ptr);
