@@ -41,7 +41,7 @@
 	- [ju\_switch::ColorSet ColorSet()](#ju_switchcolorset-colorset)
 	- [void ColorSet(ju\_switch::ColorSet new\_color\_set)](#void-colorsetju_switchcolorset-new_color_set)
 	- [bool CurrentState()](#bool-currentstate)
-	- [void ChangeState(bool new\_state)](#void-changestatebool-new_state)
+	- [void ChangeState(bool new\_state, bool emit\_signal)](#void-changestatebool-new_state-bool-emit_signal)
 
 # 需求
 
@@ -523,7 +523,7 @@ struct ParamSet
 
 获取当前状态.
 
-## void ChangeState(bool new_state)
+## void ChangeState(bool new_state, bool emit_signal)
 
-设置新的状态. 会发出信号[SignalStateChange](#void-signalstatechangebool-current_state).
+设置新的状态. 如果`emit_signal == true`(默认值)会发出信号[SignalStateChange](#void-signalstatechangebool-current_state).
 

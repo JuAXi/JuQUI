@@ -41,7 +41,7 @@
 	- [ju\_switch::ColorSet ColorSet()](#ju_switchcolorset-colorset)
 	- [void ColorSet(ju\_switch::ColorSet new\_color\_set)](#void-colorsetju_switchcolorset-new_color_set)
 	- [bool CurrentState()](#bool-currentstate)
-	- [void ChangeState(bool new\_state)](#void-changestatebool-new_state)
+	- [void ChangeState(bool new\_state, bool emit\_signal)](#void-changestatebool-new_state-bool-emit_signal)
 
 # Required
 
@@ -523,7 +523,7 @@ Set new ColorSet. It will auto set color to button and slider.
 
 Get current state.
 
-## void ChangeState(bool new_state)
+## void ChangeState(bool new_state, bool emit_signal)
 
-Set new state. It will emit signal [SignalStateChange](#void-signalstatechangebool-current_state).
+Set new state. If `emit_signal == true`(as default value), it will emit signal [SignalStateChange](#void-signalstatechangebool-current_state).
 
