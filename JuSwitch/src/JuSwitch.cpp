@@ -370,6 +370,7 @@ void JuSwitch::ChangeState(bool new_state, bool emit_signal)
 	{
 		// false -> true
 		_button_move_animation_ptr->setDirection(QAbstractAnimation::Forward);
+		_button_move_animation_ptr->setEasingCurve(QEasingCurve::OutCubic);
 		_button_color_animation_ptr->setDirection(QAbstractAnimation::Forward);
 		_button_border_animation_ptr->setDirection(QAbstractAnimation::Forward);
 	}
@@ -377,6 +378,7 @@ void JuSwitch::ChangeState(bool new_state, bool emit_signal)
 	{
 		// true -> false
 		_button_move_animation_ptr->setDirection(QAbstractAnimation::Backward);
+		_button_move_animation_ptr->setEasingCurve(QEasingCurve::InCubic);
 		_button_color_animation_ptr->setDirection(QAbstractAnimation::Backward);
 		_button_border_animation_ptr->setDirection(QAbstractAnimation::Backward);
 	}
