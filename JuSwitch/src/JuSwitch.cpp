@@ -1,5 +1,6 @@
 /*
  * Copyright 2026 JuAXi
+ * https://github.com/JuAXi/JuQUI
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +38,8 @@ JuSwitch::JuSwitch(QWidget* parent, ju_switch::ParamSet param, ju_switch::ColorS
 	/*		create animations		*/
 	// button move
 	_button_move_animation_ptr = new QPropertyAnimation(button_ptr, "pos", button_ptr);
+	_button_move_animation_ptr->setStartValue(QPoint(0, 0));
+	_button_move_animation_ptr->setEndValue(QPoint(0, 0));
 	_button_move_animation_ptr->setEasingCurve(QEasingCurve::OutCubic);
 	connect(_button_move_animation_ptr, &QPropertyAnimation::finished, [this]() {this->_animation_running = false; });
 	// button color
