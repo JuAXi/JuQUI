@@ -5,7 +5,7 @@
 <div style="text-align: center;">
 	<a href="./README.md">English</a>
 	|
-	<a href="./README_zh.md">中文</a>
+	<span>中文</span>
 </div>
 
 ## <font size="6">**目录**</font>

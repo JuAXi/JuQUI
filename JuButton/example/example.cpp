@@ -8,8 +8,7 @@ example::example(QWidget* parent) : QMainWindow(parent), ui(new Ui::exampleClass
 {
 	ui->setupUi(this);
 
-	auto button = new JuButton("test", this);
-	button->setFixedSize(100, 80);
+	auto button = new JuButton("My button", this);
 	button->move(50, 50);
 
 	auto label = new QLabel("not press", this);
