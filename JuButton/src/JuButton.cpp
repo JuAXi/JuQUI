@@ -21,6 +21,7 @@
 #include <QGridLayout>
 #include <QSpacerItem>
 #include <QPropertyAnimation>
+#include <QMouseEvent>
 
 JuButton::JuButton(QString text,
 	QWidget* parent,
@@ -188,6 +189,10 @@ void JuButton::mousePressEvent(QMouseEvent* event)
 void JuButton::mouseReleaseEvent(QMouseEvent* event)
 {
 	emit SignalButtonRelease();
+	if (this->rect().contains(event->position().toPoint()))
+	{
+		emit SignalButtonClicked();
+	}
 	current_state &= 0b01;
 	ChangeColorAnime();
 	QWidget::mouseReleaseEvent(event);

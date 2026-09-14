@@ -83,6 +83,7 @@ public:
 signals:
 	void SignalButtonPress();
 	void SignalButtonRelease();
+	void SignalButtonClicked();
 
 protected:
 	void enterEvent(QEnterEvent *event) override;

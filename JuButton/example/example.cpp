@@ -2,7 +2,7 @@
 
 #include <JuButton.h>
 
-#include <QLabel>
+#include <QTextEdit>
 
 example::example(QWidget* parent) : QMainWindow(parent), ui(new Ui::exampleClass())
 {
@@ -11,17 +11,22 @@ example::example(QWidget* parent) : QMainWindow(parent), ui(new Ui::exampleClass
 	auto button = new JuButton("My button", this);
 	button->move(50, 50);
 
-	auto label = new QLabel("not press", this);
-	label->move(180, 50);
+	auto text_edit = new QTextEdit(this);
+	text_edit->setGeometry(180, 50, 300, 200);
 
-	connect(button, &JuButton::SignalButtonPress, this, [this, label]()
+	connect(button, &JuButton::SignalButtonPress, this, [this, text_edit]()
 		{
-			label->setText("button press!");
+			text_edit->append("button press!");
 		});
 
-	connect(button, &JuButton::SignalButtonRelease, this, [this, label]()
+	connect(button, &JuButton::SignalButtonRelease, this, [this, text_edit]()
 		{
-			label->setText("button release!");
+			text_edit->append("button release!");
+		});
+
+	connect(button, &JuButton::SignalButtonClicked, this, [this, text_edit]()
+		{
+			text_edit->append("button clicked!");
 		});
 }
 

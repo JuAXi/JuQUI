@@ -20,6 +20,7 @@
 - [Signals](#signals)
 	- [`void SignalButtonPress()`](#void-signalbuttonpress)
 	- [`void SignalButtonRelease()`](#void-signalbuttonrelease)
+	- [`void SignalButtonClicked()`](#void-signalbuttonclicked)
 - [Functions](#functions)
 	- [void SetBaseColor(ju\_button::ColorSet colors)](#void-setbasecolorju_buttoncolorset-colors)
 	- [void SetHoverColor(ju\_button::ColorSet colors)](#void-sethovercolorju_buttoncolorset-colors)
@@ -105,11 +106,15 @@
 
 ## `void SignalButtonPress()`  
 
-Triggered when the button is pressed.
+Triggered when the button is pressed.  
 
 ## `void SignalButtonRelease()`
 
 Triggered when the button is released.
+
+## `void SignalButtonClicked()`
+
+Triggered when user press and release in button's widget.
 
 # Functions  
 

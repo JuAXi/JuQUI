@@ -20,6 +20,7 @@
 - [信号槽](#信号槽)
 	- [`void SignalButtonPress()`](#void-signalbuttonpress)
 	- [`void SignalButtonRelease()`](#void-signalbuttonrelease)
+	- [`void SignalButtonClicked()`](#void-signalbuttonclicked)
 - [函数](#函数)
 	- [void SetBaseColor(ju\_button::ColorSet colors)](#void-setbasecolorju_buttoncolorset-colors)
 	- [void SetHoverColor(ju\_button::ColorSet colors)](#void-sethovercolorju_buttoncolorset-colors)
@@ -109,7 +110,11 @@
 
 ## `void SignalButtonRelease()`
 
-按钮释放时触发。
+按钮释放时触发。  
+
+## `void SignalButtonClicked()`
+
+用户在控件范围内按下并释放时触发。
 
 # 函数  
 
